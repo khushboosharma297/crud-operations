@@ -46,6 +46,10 @@ export default function TeamSkillMatrix() {
     proficiency: 'learning' as ProficiencyLevel,
   });
 
+  const resetFormData = () => {
+    setFormData({ name: '', role: '', category: '', person_id: '', skill_id: '', proficiency: 'learning' });
+  };
+
   useEffect(() => {
     const loaded = loadData();
     setData(loaded);
@@ -143,7 +147,7 @@ export default function TeamSkillMatrix() {
     };
     updateData({ ...data, people: [...data.people, newPerson] });
     setShowAddDialog(null);
-    setFormData({ name: '', role: '', category: '', person_id: '', skill_id: '', proficiency: 'learning' });
+    resetFormData();
   };
 
   const addSkill = () => {
@@ -154,10 +158,12 @@ export default function TeamSkillMatrix() {
     };
     updateData({ ...data, skills: [...data.skills, newSkill] });
     setShowAddDialog(null);
-    setFormData({ name: '', role: '', category: '', person_id: '', skill_id: '', proficiency: 'learning' });
+    resetFormData();
   };
 
   const addConnection = () => {
+    if (!formData.person_id || !formData.skill_id) return;
+
     const exists = data.connections.some(
       (c) => c.person_id === formData.person_id && c.skill_id === formData.skill_id
     );
@@ -170,7 +176,7 @@ export default function TeamSkillMatrix() {
     };
     updateData({ ...data, connections: [...data.connections, newConnection] });
     setShowAddDialog(null);
-    setFormData({ name: '', role: '', category: '', person_id: '', skill_id: '', proficiency: 'learning' });
+    resetFormData();
   };
 
   const updatePerson = () => {
@@ -180,7 +186,7 @@ export default function TeamSkillMatrix() {
     );
     updateData({ ...data, people: updated });
     setEditingNode(null);
-    setFormData({ name: '', role: '', category: '', person_id: '', skill_id: '', proficiency: 'learning' });
+    resetFormData();
   };
 
   const updateSkill = () => {
@@ -190,7 +196,7 @@ export default function TeamSkillMatrix() {
     );
     updateData({ ...data, skills: updated });
     setEditingNode(null);
-    setFormData({ name: '', role: '', category: '', person_id: '', skill_id: '', proficiency: 'learning' });
+    resetFormData();
   };
 
   const deletePerson = (id: string) => {
@@ -278,7 +284,7 @@ export default function TeamSkillMatrix() {
           <CardContent>
             {selectedPerson && (
               <>
-                {selectedPerson.role && <p className="text-sm text-muted-foreground mb-4">{selectedPerson.role}</p>}
+                {selectedPerson.role && <p className="text-sm text-gray-800 dark:text-gray-900 font-medium mb-4">{selectedPerson.role}</p>}
                 <div className="flex gap-2 mb-4">
                   <Button
                     size="sm"
@@ -319,7 +325,7 @@ export default function TeamSkillMatrix() {
 
             {selectedSkill && (
               <>
-                {selectedSkill.category && <p className="text-sm text-muted-foreground mb-4">{selectedSkill.category}</p>}
+                {selectedSkill.category && <p className="text-sm text-gray-800 dark:text-gray-900 font-medium mb-4">{selectedSkill.category}</p>}
                 <div className="flex gap-2 mb-4">
                   <Button
                     size="sm"
