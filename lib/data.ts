@@ -4,11 +4,11 @@ const STORAGE_KEY = 'team-skill-matrix';
 
 export const seedData: GraphData = {
   people: [
-    { id: 'p1', name: 'Alice', role: 'Frontend Engineer' },
-    { id: 'p2', name: 'Bob', role: 'Full-Stack Engineer' },
-    { id: 'p3', name: 'Carol', role: 'Backend Engineer' },
-    { id: 'p4', name: 'Dan', role: 'Designer' },
-    { id: 'p5', name: 'Eva', role: 'DevOps Engineer' },
+    { id: 'p1', name: 'Shobha', role: 'Frontend Engineer' },
+    { id: 'p2', name: 'Khushboo', role: 'Full-Stack Engineer' },
+    { id: 'p3', name: 'Saurav', role: 'Backend Engineer' },
+    { id: 'p4', name: 'Ram', role: 'Designer' },
+    { id: 'p5', name: 'Shayam', role: 'DevOps Engineer' },
   ],
   skills: [
     { id: 's1', name: 'React', category: 'Frontend' },
