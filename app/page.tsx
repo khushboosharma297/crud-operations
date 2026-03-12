@@ -13,7 +13,7 @@ import ReactFlow, {
   Position,
 } from 'reactflow';
 import 'reactflow/dist/style.css';
-import { User, Lightbulb, Plus, Edit2, Trash2, X, ChevronDown, TrendingUp, Users, Zap } from 'lucide-react';
+import { User, Lightbulb, Plus, CreditCard as Edit2, Trash2, X, ChevronDown, TrendingUp, Users, Zap } from 'lucide-react';
 import { GraphData, Person, Skill, Connection, ProficiencyLevel } from '@/lib/types';
 import { loadData, saveData, generateId } from '@/lib/data';
 import { Button } from '@/components/ui/button';
